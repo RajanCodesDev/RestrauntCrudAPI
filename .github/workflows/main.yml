@@ -21,5 +21,28 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Build the app
-      #   run: npm run build
+      - name: Start server and check for errors
+        run: |
+          # Start server in background and redirect output
+          npm run server &> server.log &
+          SERVER_PID=$!
+
+          # Wait a few seconds to let server start
+          sleep 5
+
+          # Check if server process is still running (means it didn't crash immediately)
+          if ps -p $SERVER_PID > /dev/null; then
+            echo "Server started successfully."
+            # Kill the server to clean up
+            kill $SERVER_PID
+          else
+            echo "Server failed to start. Here are the logs:"
+            cat server.log
+            exit 1
+          fi
+
+
+
+          
+            # - name: Build the app
+            #   run: npm run build

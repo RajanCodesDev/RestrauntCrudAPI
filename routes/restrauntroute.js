@@ -1,5 +1,6 @@
 import express from 'express'
-import { createRestraunt, getRestaurants } from '../controllers/restrauntController.js'
+import authmiddleware from '../middleware/authmiddleware.js'
+import { createRestraunt, deleteRestaurant, getRestaurants } from '../controllers/restrauntController.js'
 
 const restrauntRouter = express.Router()
 
@@ -9,5 +10,6 @@ const restrauntRouter = express.Router()
 //Create Restraunt
 restrauntRouter.post('/create', createRestraunt )
 restrauntRouter.get('/getrestaurant', getRestaurants)
+restrauntRouter.delete('/deleteRes', authmiddleware, deleteRestaurant)
 
 export default restrauntRouter

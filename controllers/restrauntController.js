@@ -1,5 +1,6 @@
 import restrauntModel from "../models/restrauntModel.js";
 
+// Creates a new restaurant
 const createRestraunt = async (req, res) => {
   try {
     const { title, foods, time, pickup, delivery, isopen } = req.body;
@@ -42,27 +43,38 @@ const createRestraunt = async (req, res) => {
   }
 };
 
+// Prints all the restaurants in the vicinity
+
 const getRestaurants = async (req, res) => {
   try {
-
     const allRestaurants = await restrauntModel.find();
-    const titlesandfoods = allRestaurants.map(restaurant => ({
-        title: restaurant.title,
-        foods: restaurant.foods
-    }))
+    const titlesandfoods = allRestaurants.map((restaurant) => ({
+      title: restaurant.title,
+      foods: restaurant.foods,
+    }));
 
     res.status(200).send({
       success: true,
       message: "Found all restaurants",
-      data: titlesandfoods
+      data: titlesandfoods,
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({
-        success: false,
-        message: "Error in getRestaurants API"
-    })
+      success: false,
+      message: "Error in getRestaurants API",
+    });
   }
 };
 
-export { createRestraunt, getRestaurants };
+
+// delete a restaurant
+const deleteRestaurant = async (req, res) =>{
+
+  
+
+}
+
+
+// export controllers
+export { createRestraunt, getRestaurants, deleteRestaurant };

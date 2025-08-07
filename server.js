@@ -21,7 +21,7 @@ app.use(express.json())
 /* Routes */
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/user', userRouter )
-app.use('/api/v1/restraunt', restrauntRouter)
+app.use('/api/v1/restaurant', restrauntRouter)
 
 
 /* listen to port */

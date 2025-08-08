@@ -4,7 +4,7 @@ import express from 'express'
 import dbconnection from './config/dbConnetion.js'
 import authRouter from './routes/authroute.js'
 import userRouter from './routes/userroute.js'
-import restrauntRouter from './routes/restrauntroute.js'
+import restaurantRouter from './routes/restaurantroute.js'
 
 
 /* Variable Assignment */
@@ -21,7 +21,7 @@ app.use(express.json())
 /* Routes */
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/user', userRouter )
-app.use('/api/v1/restaurant', restrauntRouter)
+app.use('/api/v1/restaurant', restaurantRouter)
 
 
 /* listen to port */

@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-const restrauntSchema = mongoose.Schema(
+const RestaurantSchema = mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "restraunt title is required"],
+      required: [true, "Restaurant title is required"],
       unique: true
     },
 
@@ -29,6 +29,6 @@ const restrauntSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const restrauntModel = mongoose.model("Restraunt", restrauntSchema);
+const RestaurantModel = mongoose.model("Restaurants ", RestaurantSchema);
 
-export default restrauntModel;
+export default RestaurantModel;
